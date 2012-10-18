@@ -1,6 +1,6 @@
 // homecontrol4me EEPROM PREPARE v1.01
 
-/* 
+/*
 homecontrol 4 me - Arduino Sketch for home control
 Copyright (c) 2012 Fabian Behnke All right reserved.
 
@@ -41,13 +41,13 @@ Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
 
 eeprom eeprom;
 
-void setup() {    
+void setup() {
     eeprom.setPasswd("admin");
     byte mac[] = {  0xDE, 0xAD, 0xBE, 0x11, 0xFE, 0xED };
-    byte ip[] = { 192,168,2,10 };
+    byte ip[] = { 192,168,11,125 };
     byte mask[] = {255,255,255,0};
-    byte gw[] = { 192,168,2,1 };
-    byte svip[] = { 192,168,2,1 };
+    byte gw[] = { 192,168,11,1 };
+    byte svip[] = { 192,168,11,1 };
     boolean dhcp = false;
     eeprom.setMac(mac);
     eeprom.setIp(ip);
