@@ -52,7 +52,7 @@ DEFS=-DDOGS102_HW -DDOG_DOUBLE_MEMORY -DDOG_SPI_SW_ARDUINO
 AVR_TOOLS_PATH:=/usr/bin/
 
 # Install path of the arduino software. Requires a '/' at the end.
-ARDUINO_PATH:=/extra/arduino/arduino-0023/
+ARDUINO_PATH:=/extra/arduino/homecontrol4me/arduino-0023/
 
 # Install path for avrdude. Requires a '/' at the end. Can be empty if avrdude is in the search path.
 AVRDUDE_PATH:=
