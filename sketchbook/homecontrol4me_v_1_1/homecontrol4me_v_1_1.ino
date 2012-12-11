@@ -55,7 +55,7 @@ Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
 #include <Streaming.h>
 #include <WebServerAuth.h>
 #include "eeprom.h"
-#include <EthernetDHCP.h>
+//#include <EthernetDHCP.h>
 #include <RCSwitch.h>
 
 //Defines
@@ -109,7 +109,7 @@ void switchWirelessOutlet(int number){
   }
 
   delay(10);
-  mySwitch.enableReceive(0, output);
+  mySwitch.enableReceive(0);
 }
 //--------------- receive  ---------------------------
 unsigned long switchMillis;
@@ -212,13 +212,13 @@ void setup() {
   mySwitch.enableTransmit(7);
 
   //Receiver is on Interrupt 0 - Arduino Pin #2
-  mySwitch.enableReceive(0, output);
+  mySwitch.enableReceive(0);
 
   // Optional set pulse length.
   mySwitch.setPulseLength(350);
 
     if(eeprom.data.dhcp == true)
-    EthernetDHCP.begin(eeprom.data.mac, 1);
+    Ethernet.begin(eeprom.data.mac);
     else
     // init ethernet and servers
     Ethernet.begin(eeprom.data.mac, eeprom.data.ip, eeprom.data.gw, eeprom.data.mask);
@@ -269,9 +269,6 @@ if(switchOutletOff[0] == true && ((currentMillis - switchMillis) > 100)){
 //Reset the System after a second
 if (resetSytem == true && (currentMillis - resetMillis) > 1000) resetFunc();
 
-//DHCP poll
-if(eeprom.data.dhcp == true)
-DhcpState state = EthernetDHCP.poll();
 
 // Check web admin connection
 webserver.processConnection();

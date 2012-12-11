@@ -34,7 +34,7 @@ Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
 */
 
 #include <EEPROM.h>
-#include <WProgram.h>
+#include <Arduino.h>
 
 #define PWD_MAX_SIZE 10
 #define NAMES_MAX_SIZE 20
