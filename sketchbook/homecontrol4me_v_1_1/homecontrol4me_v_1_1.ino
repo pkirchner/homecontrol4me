@@ -217,9 +217,6 @@ void setup() {
   // Optional set pulse length.
   mySwitch.setPulseLength(350);
 
-    if(eeprom.data.dhcp == true)
-    Ethernet.begin(eeprom.data.mac);
-    else
     // init ethernet and servers
     Ethernet.begin(eeprom.data.mac, eeprom.data.ip, eeprom.data.gw, eeprom.data.mask);
 
@@ -480,8 +477,6 @@ void netForm(WebServer &server, WebServer::ConnectionType type, char *url_tail, 
     "DHCP:</td><td><input type=checkbox name=\"dh\" value=\"x\"";
     server.printP(htmlNetForm4);
 
-    if(eeprom.data.dhcp == true)
-      server << " checked";
 
     server.printP(tdtr);
     server.printP(submit);
